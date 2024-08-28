@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>
+		Displaying Cloud Matrutiy Matrix Questions
+	</title>
+    <script src="script.js" type="module"></script>
+
+	<style>
+
+		/* Styling the Body element i.e. Color, 
+		Font, Alignment */ 
+		body {
+			background-color: #ffffff;
+			font-family: Verdana;
+			text-align: center;
+			margin-right: 150px auto;
+			margin-bottom: 10px;
+			margin-left: 150px auto;
+			margin-top: 20px;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: center;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */ 
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input, 
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio 
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+			background-color: #a4e9c0;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 60%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+			
+		}
+		.button-container {
+			text-align: center; /* Center the buttons horizontally */
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			
+			/*justify-content: center;
+			height: 100vh; //Center vertically within the viewport */
+		}
+		#myChart {
+      height: 100vh;
+    }
+	</style>
+</head>
+
+<body>
+	<label id="Homepage">
+
+	<header>
+		<h1>Cloud Native Maturity Matrix Tool</h1>
+	</header>
+
+    <button style="display: none;" type="reload" id="reload" value="reload">
+        Continue Previous Session
+    </button>
+	<div class="button-container">
+		<button type="start" id="start" value="start" >Start</button>
+	</div>
+	
+    </label>
+
+	<label id="withoutmatrix" style="display: none">
+	<h1 id="level-name">Culture</h1>
+	<!-- Create Form -->      
+		
+		<div class="form-control" style="display: block;">
+			<label id="top-level">Do you have a collaborative culture (e.g. big but not specific/highly detailed goals with no 
+                fixed delivery dates)?</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="yes-0">
+				<input type="radio"
+					id="yes-0"
+					name="yesno0">Yes</input>
+			</label>
+			<label for="no-0">
+				<input type="radio"
+					id="no-0"
+					name="yesno0">No</input>
+			</label>
+		</div>
+
+
+		<div class="form-control" style="display: none;">
+			<label id="q1">
+				Project managers coordinate between all the different teams working on the same project, and the teams have highly specialised responsibilities.
+			</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="yes-1">
+				<input type="radio"
+					id="yes-1"
+					name="yesno1">Yes</input>
+			</label>
+			<label for="no-1">
+				<input type="radio"
+					id="no-1"
+					name="yesno1">No</input>
+			</label>
+		</div>
+		<div class="form-control" style="display: none;">
+			<label id="q2">
+				Our development teams focus on achieving small, defined objectives quickly and then moving immediately to the next one
+			</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="yes-2">
+				<input type="radio"
+					id="yes-2"
+					name="yesno2">Yes</input>
+			</label>
+			<label for="no-2">
+				<input type="radio"
+					id="no-2"
+					name="yesno2">No</input>
+			</label>
+		</div>
+		<div class="form-control" style="display: none;">
+			<label id="q3">
+				A lot of up-front planning goes into documenting each step of a project before it even begins
+			</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="yes-3">
+				<input type="radio"
+					id="yes-3"
+					name="yesno3">Yes</input>
+			</label>
+			<label for="no-3">
+				<input type="radio"
+					id="no-3"
+					name="yesno3">No</input>
+			</label>
+		</div>
+		<div class="form-control" style="display: none;">
+			<label id="q4">
+				Do you have a collaborative culture (e.g. big but not specific/highly detailed goals with no 
+                fixed delivery dates)?
+			</label>
+
+			<!-- Input Type Radio Button -->
+			<label for="yes-4">
+				<input type="radio"
+					id="yes-4"
+					name="yesno4">Yes</input>
+			</label>
+			<label for="no-4">
+				<input type="radio"
+					id="no-4"
+					name="yesno4">No</input>
+			</label>
+		</div>
+	
+		<!-- Multi-line Text Input Control -->
+		<div class="button-container">
+		<button id="submit" type="submit">Submit</button>
+		<button id="gohome" >Go Home </button>
+	</div>
+	</label>
+	
+		
+
+
+	<div id="matrix" style="display: none;">
+		<b>
+			Answers
+		</b>
+		<p>			
+		</p>
+		
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	 <div id="myChart"></div>
+	 
+	 <div class="button-container"><button id="gohome2" >Go Home</button></div>
+
+	 
+	</div>
+	 
+	
+
+
+</body>
+</html>

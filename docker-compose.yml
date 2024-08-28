@@ -1,0 +1,37 @@
+version: '3'
+services:
+
+  cnmmt-mysql-database:
+    container_name: cnmmt-mysql-database
+    build: 
+      context: ./sql
+      args:
+        - MYSQL_DATABASE=cnmmt_MySQL_database
+        - MYSQL_USER=admin
+        - MYSQL_PASSWORD=admin
+        - MYSQL_ROOT_PASSWORD=admin
+        - MYSQL_PORT_NUMBER=1000
+    image: cnmmt/mysql-database
+    restart: always
+    ports:
+    - "1000:3306"
+
+  cnmmt-rest-api:
+    build: ./cnmmt-rest-api
+    image: cnmmt/rest-api
+    depends_on:
+      - cnmmt-mysql-database
+    ports:
+    - "8080:8080"
+    restart: unless-stopped
+
+  cnmmt-front-end:
+    build: ./Frontend
+    image: cnmmt/front-end
+    depends_on:
+      - cnmmt-rest-api
+    ports:
+    - "8000:8080"
+    restart: unless-stopped
+
+
